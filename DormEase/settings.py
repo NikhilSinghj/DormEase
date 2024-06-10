@@ -85,12 +85,12 @@ WSGI_APPLICATION = 'DormEase.wsgi.application'
 
 DATABASES = {
        'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dorm',
-        'USER': 'nikhil',
-        'PASSWORD':'Nik212107@',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD':'wJqyqHUHukTrCRKzWOUesecvcFinSmRr',
+        'HOST':'roundhouse.proxy.rlwy.net',
+        'PORT':'45215',
     }
 
 }
