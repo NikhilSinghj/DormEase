@@ -37,11 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    "corsheaders",
+    'sslserver',
     'dorm',
-    'sslserver'
+    'attendence',
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,14 +87,26 @@ WSGI_APPLICATION = 'DormEase.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#        'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD':'wJqyqHUHukTrCRKzWOUesecvcFinSmRr',
+#         'HOST':'roundhouse.proxy.rlwy.net',
+#         'PORT':'45215',
+#     }
+
+# }
+
 DATABASES = {
        'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD':'wJqyqHUHukTrCRKzWOUesecvcFinSmRr',
-        'HOST':'roundhouse.proxy.rlwy.net',
-        'PORT':'45215',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dorm',
+        'USER': 'nikhil',
+        'PASSWORD':'Nik212107@',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 
 }
@@ -138,7 +154,23 @@ MEDIA_URL = 'images/'
 
 STATIC_URL = 'static/'
 
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+# SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'None'
+SECURE_SSL_REDIRECT = True
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}

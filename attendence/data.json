@@ -1,0 +1,17 @@
+{
+    "date": "2024-06-23",
+    "attendance_records": [
+        {
+            "student": 1,
+            "atd_status": "P"
+        },
+        {
+            "student": 2,
+            "atd_status": "P"
+        },
+        {
+            "student": 3,
+            "atd_status": "P"
+        }
+    ]
+}

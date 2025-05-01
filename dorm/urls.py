@@ -1,21 +1,14 @@
-# from django.urls import path
-# from django.conf import settings
-# from django.conf.urls.static import static
-
-# urlpatterns = [
-#     # path('',)
-
-# ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
 from django.urls import path
-
-from.views import get_users , register
-
+from .views import (UserRegistrationView,LoginView,LogoutView,RoomListCreate
+                    ,WardenListCreate,StudentListCreate,UploadExcelView,StudentAPIView)
 
 urlpatterns = [
-
-    path('users/', get_users),
-    path('register/', register, name='register'),
-
+    # path('user/', UserRegistrationView.as_view(), name='register-user'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('rooms/',RoomListCreate.as_view(),name='add-room-to-hostel'),
+    path('warden/',WardenListCreate.as_view(),name='add-warden-to-hostel'),
+    path('room-allotment/',StudentListCreate.as_view(),name='roomallotment'),
+    path('upload-excel/', UploadExcelView.as_view(), name='upload-excel'),
+    path('users/', StudentAPIView.as_view(), name='all-students'),
 ]

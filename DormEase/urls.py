@@ -16,8 +16,11 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path,include
+from django.urls import re_path
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('hostels/',include('dorm.urls')),
+    re_path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('dorm/',include('dorm.urls')),
+    path('attendance/',include('attendence.urls')),
 ]
